@@ -6,7 +6,7 @@ There are two types of data in JavaScript: 1) primatives and 2) objects.
 
 All types except objects define immutable values (values, which are incapable of being changed). For example, Strings are immutable. We refer to values of these types as "primitive values".
 
-#### Primative Data Types
+## Primative Data Types
 
 JavaScript has a six primitive data types:
 
@@ -33,7 +33,68 @@ JavaScript has a six primitive data types:
    - `var greeting = Symbol("hello");`
    - `typeof sym;     // "symbol"`
 
-#### Objects
+
+#### 1. Numbers
+
+Unlike most programming languages JS uses floats by default. And creating literal numbers uses the Number Constructor. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
+
+Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor`.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
+
+```javascript
+4 === 4.0;                               // Returns true
+
+Math.floor(4.00001);                     // Returns 4
+
+4.0000000000000001 === 4;                // Returns true
+
+Math.floor(4.0000000000000001); === true // safer!
+```
+
+#### 2. Strings
+
+Strings are very straight forward in JS.  They are collections of characters.  Plus signs are used to concatenated strings.
+
+JS does not support string interpolation like some other languages (i.e. Ruby). Concatenating strings coerces the types of the objects into strings if they are not already.
+
+```javascript
+'Hello ' + 'World';  // Returns 'Hello World'
+
+'High ' + 5 + '!!!'; // Returns 'High 5!!!'
+```
+
+#### 3. Booleans
+
+Booleans (**true** or **false** values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
+
+Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers 1 and 0 also follow boolean logic, so 1 is loosely equal to true and 0 is loosely equal to false. (1 and 0 can also be cast into true and false respectively). For example:
+
+```javascript
+!!0        // Returns false 
+
++ true     // Returns 1 
+
+0 == false // Returns true 
+
+!!1        // Returns true
+```
+
+#### 4. Undefined and 5. Null (and NaN)
+
+`undefined` represents the absence of a primitve value while `null` represents the absence of an object.
+
+NaN represents an error from the improper use of a math operator.  NaN is the only thing in JS that is not equal to itself. To check for NaN use the `isNaN()` function.
+
+```javascript
+1 - 'three' // Returns NaN
+NaN === NaN // Returns false
+isNaN(NaN)  // Returns true
+```
+
+#### 6. Symbols
+
+Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incoporate them into new code. To read more about symbols, see []()
+
+## Objects
 
 In JavaScript, objects can be seen as a collection of properties. You can think of them as most similar to Ruby's hashes, but with superpowers of storing functions as values in addition to the standard strings, numbers, etc. We'll go over objects in more depth later, so for now just know that if you see something like this:
 
