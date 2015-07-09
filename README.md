@@ -1,12 +1,12 @@
 # JavaScript Data Types
 
-## Data Types
+## About
 
 There are two types of data in JavaScript: 1) primatives and 2) objects.
 
 All types except objects define immutable values (values, which are incapable of being changed). For example, Strings are immutable. We refer to values of these types as "primitive values".
 
-#### Primative Data Types
+## Primative Data Types
 
 JavaScript has a six primitive data types:
 
@@ -33,7 +33,7 @@ JavaScript has a six primitive data types:
    - `var greeting = Symbol("hello");`
    - `typeof sym;     // "symbol"`
 
-#### Objects
+## Objects
 
 In JavaScript, objects can be seen as a collection of properties. You can think of them as most similar to Ruby's hashes, but with superpowers of storing functions as values in addition to the standard strings, numbers, etc. We'll go over objects in more depth later, so for now just know that if you see something like this:
 
