@@ -1,5 +1,18 @@
 # JavaScript Data Types
 
+## Overview
+
+* About
+* Primative Data Types
+  1. Numbers
+  2. Strings
+  3. Booleans
+  4. undefined
+  5. null
+  6. Symbols
+* Objects
+* Errors in Brief
+
 ## About
 
 There are two types of data in JavaScript: 1) primatives and 2) objects.
@@ -80,25 +93,47 @@ Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers 1 a
 !!1        // Returns true
 ```
 
-#### 4. Undefined and 5. Null (and NaN)
+#### 4. Undefined 
 
-`undefined` represents the absence of a primitve value while `null` represents the absence of an object.
-
-NaN represents an error from the improper use of a math operator.  NaN is the only thing in JS that is not equal to itself. To check for NaN use the `isNaN()` function.
+In JavaScript, `undefined` means a variable has been declared but has not yet been assigned a value, such as:
 
 ```javascript
-1 - 'three' // Returns NaN
-NaN === NaN // Returns false
-isNaN(NaN)  // Returns true
+var greeting;
+greeting;         // Returns undefined
+typeof(greeting); // Returns undefined
 ```
+
+#### 5. Null
+
+While `undefined` represents the absence of a primitve *value*, `null` represents the absence of an object. It can be assigned to a variable as a representation of no value:
+
+```javascript
+var example = null;
+example;         // Returns null
+typeof(example); // Returns object
+```
+
+From the preceding examples, it is clear that `undefined` and `null` are two distinct types: `undefined` is a type itself (`undefined`) while `null` is an object. To read more about the difference between `undefined` and `null`, see [this StackOverflow post](http://stackoverflow.com/q/5076944/2890716).
 
 #### 6. Symbols
 
-Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incoporate them into new code. To read more about symbols, see []()
+Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incoporate them into new code. As with Ruby, symbols are a unique and immutable data type which straddle the two worlds of objects and strings. 
+
+Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/):
+
+> Symbols aren’t exactly like anything else. They’re immutable once created. You can’t set properties on them (and if you try that in strict mode, you’ll get a TypeError). They can be property names. These are all string-like qualities.
+
+> On the other hand, each symbol is unique, distinct from all others (even others that have the same description) and you can easily create new ones. These are object-like qualities.
+
+> ES6 symbols are similar to the more traditional symbols in languages like Lisp and Ruby.
+
+To read more about symbols, see [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) or [this StackOverflow post](http://stackoverflow.com/q/21724326/2890716).
 
 ## Objects
 
-In JavaScript, objects can be seen as a collection of properties. You can think of them as most similar to Ruby's hashes, but with superpowers of storing functions as values in addition to the standard strings, numbers, etc. We'll go over objects in more depth later, so for now just know that if you see something like this:
+In JavaScript, objects can be seen as a collection of properties. You can think of them as most similar to Ruby's hashes, but with superpowers of storing functions as values in addition to the standard strings, numbers, etc. 
+
+We'll go over objects in more depth later, so for now just know that if you see something like the code below, you're probably looking at an object:
 
 ```javascript
 var linkedInUser = {
@@ -109,6 +144,32 @@ var linkedInUser = {
   "connectionNum": 534
 }
 ```
+
+## Errors in Brief
+
+Let's think back to Ruby. Ruby has standard errors ranging from type errors to syntax errors. Take a look at the example below:
+
+```ruby
+1 + "7"
+TypeError: String can't be coerced into Fixnum
+```
+
+Just like Ruby, JavaScript also has errors. Here are some examples: EvalErrors, RangeErrors, SyntaxErrors, and TypeErrors. For instance, if you forget to pass the function `typeOf()` an argument, you'll get a syntax error:
+
+```javascript
+typeof(); // Returns Uncaught SyntaxError: Unexpected token )
+```
+
+#### NaN
+
+`NaN`, standing for Not-A-Number, represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function.
+
+```javascript
+1 - 'three' // Returns NaN
+NaN === NaN // Returns false
+isNaN(NaN)  // Returns true
+```
+To read more about `NaN`, see *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
 ## Resources
 
