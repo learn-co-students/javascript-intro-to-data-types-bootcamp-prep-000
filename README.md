@@ -3,23 +3,23 @@
 ## Overview
 
 * About
-* Primative Data Types
-  1. Numbers
-  2. Strings
-  3. Booleans
+* Primitive Data Types
+  1. Number
+  2. String
+  3. Boolean
   4. undefined
-  5. null
-  6. Symbols
+  5. Null
+  6. Symbol
 * Objects
 * Errors in Brief
 
 ## About
 
-There are two types of data in JavaScript: 1) primatives and 2) objects.
+There are two types of data in JavaScript: 1) primitives and 2) objects.
 
-All types except objects define immutable values (values, which are incapable of being changed). For example, Strings are immutable. We refer to values of these types as "primitive values".
+All types except objects define immutable values (values which are incapable of being changed). For example, Strings are immutable. This means that once a string is created, it is not possible to modify it. However, it is still possible to create another string based on an operation on the original string. We refer to values of these types as "primitive values".
 
-## Primative Data Types
+## Primitive Data Types
 
 JavaScript has a six primitive data types:
 
@@ -28,21 +28,23 @@ JavaScript has a six primitive data types:
   - The largest number in JavaScript is `9007199254740992`. Similarly, the smallest number is -`9007199254740992` (see [here](http://stackoverflow.com/a/307200/2890716) for more info.
 
 2. String
-  - Examples include:  `"a"`, `"World Wide Web"`
+  - Examples include:  `"a"`, `"World Wide Web"`, `"Hey! H*w @re y0u?!"`
 
 3. Boolean
   - Only two examples: `true` and `false`
 `
 4. Undefined
   - Only one example: `undefined`
-  - Refers to an absent or unknown value
+  - Refers to an absent or unknown value. 
+  - A variable that has not been assigned a value has the value undefined.
+  - A function returns undefined if a value is not returned.
 
 5. Null
   - Only one example: `null`
   - This is a special keyword that means one of two things: no value or empty.  The difference from undefined is that when a variable is null, it is still defined.
 
 6. Symbol type
- - New (!) to JavaScript in ECMAScript Edition 6. Instead of creating new symbols with the `:` as we do in Ruby, you can make a new symbol by calling on the Symbol class and passing it a string:
+ - New (!) to JavaScript in ECMAScript Edition 6. A Symbol is a unique and immutable primitive value and may be used as the key of an Object property. Instead of creating new symbols with the `:` as we do in Ruby, you can make a new symbol by calling on the Symbol class and passing it a string:
 
 ```javascript
 var greeting = Symbol("hello");
@@ -53,7 +55,7 @@ typeof sym; // Returns "symbol"
 
 Unlike most programming languages JS uses floats by default. And creating literal numbers uses the Number Constructor. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
 
-Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor`.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
+Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor()`.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
 
 ```javascript
 4 === 4.0;                               // Returns true
@@ -67,9 +69,9 @@ Math.floor(4.0000000000000001); === true // safer!
 
 #### 2. Strings
 
-Strings are very straight forward in JS.  They are collections of characters.  Plus signs are used to concatenated strings.
+Strings are very straight forward in JavaScript.  They are collections of characters.  Plus signs are used to concatenate strings.
 
-JS does not support string interpolation like some other languages (i.e. Ruby). Concatenating strings coerces the types of the objects into strings if they are not already.
+JavaScript does not support string interpolation like some other languages (i.e. Ruby). Concatenating strings coerces the types of the objects into strings if they are not already.
 
 ```javascript
 'Hello ' + 'World';  // Returns 'Hello World'
@@ -105,7 +107,7 @@ typeof(greeting); // Returns undefined
 
 #### 5. Null
 
-While `undefined` represents the absence of a primitve *value*, `null` represents the absence of an object. It can be assigned to a variable as a representation of no value:
+While `undefined` represents the absence of a primitive *value*, `null` represents the absence of an object. It can be assigned to a variable as a representation of no value:
 
 ```javascript
 var example = null;
