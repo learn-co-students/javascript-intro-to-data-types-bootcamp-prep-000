@@ -119,7 +119,7 @@ From the preceding examples, it is clear that `undefined` and `null` are two dis
 
 #### 6. Symbols
 
-Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incoporate them into new code. As with Ruby, symbols are a unique and immutable data type which straddle the two worlds of objects and strings. 
+Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incorporate them into new code. As with Ruby, symbols are a unique and immutable data type which straddle the two worlds of objects and strings. 
 
 Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/):
 
