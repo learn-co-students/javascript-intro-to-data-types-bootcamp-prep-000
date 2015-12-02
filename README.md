@@ -176,3 +176,5 @@ To read more about `NaN`, see *A Drip of Javascript*'s post titled [The Problem 
 ## Resources
 
 * [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+
+<a href='https://learn.co/lessons/intro-to-data-types.js' data-visibility='hidden'>View this lesson on Learn.co</a>
