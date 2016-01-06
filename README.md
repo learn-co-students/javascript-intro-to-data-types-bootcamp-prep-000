@@ -61,16 +61,16 @@ JavaScript does not support string interpolation like some other languages (i.e.
 
 ### Booleans
 
-Booleans (**true** or **false** values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
+Booleans (`true` or `false` values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
 
-Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers 1 and 0 also follow boolean logic, so 1 is loosely equal to true and 0 is loosely equal to false. (1 and 0 can also be cast into true and false respectively). For example:
+Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers `1` and `0` also follow boolean logic, with `1` being "truthy" and `0` being "falsey". `1` and `0` can also be cast into `true` and `false` respectively. For example:
 
 ```javascript
 !!0        // Returns false 
 
-+ true     // Returns 1 
++ true     // Returns 1
 
-0 == false // Returns true 
++ false // Returns 0
 
 !!1        // Returns true
 ```
@@ -129,12 +129,15 @@ typeof(); // Returns Uncaught SyntaxError: Unexpected token )
 
 #### NaN
 
-`NaN`, standing for Not-A-Number, represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function.
+`NaN`, standing for Not-A-Number, represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function. `isNan()` will return `false` if the argument can be operated on. For example, we saw earlier that `0 + true` returns `1`. Therefore, `isNan(true)` will return false, because `true` can be used in mathematical expressions. 
 
 ```javascript
 1 - 'three' // Returns NaN
 NaN === NaN // Returns false
 isNaN(NaN)  // Returns true
+isNaN("Hello") // Returns true
+isNaN(42) // Returns false
+isNaN(true) // Returns false
 ```
 To read more about `NaN`, see *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
