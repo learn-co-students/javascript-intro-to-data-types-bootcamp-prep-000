@@ -33,7 +33,7 @@ JavaScript's data types are:
 
 ### Numbers
 
-Unlike most programming languages JS uses floats by default. And creating literal numbers uses the Number Constructor. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
+Unlike most programming languages JS uses floats by default. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
 
 Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor()`, which rounds the number down to the whole number.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
 
@@ -44,7 +44,7 @@ Math.floor(4.00001);                     // Returns 4
 
 4.0000000000000001 === 4;                // Returns true
 
-Math.floor(4.0000000000000001); === true // safer!
+Math.floor(4.0000000000000001); === 4 // Returns true safer!
 ```
 
 ### Strings
