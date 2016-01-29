@@ -1,6 +1,12 @@
 # JavaScript Data Types
 
+JavaScript has many of the same data types as Ruby, and a few we've never seen before. In this lesson, we'll cover all the different data types in JavaScript.
+
+## Objectives
++ List the JS datatypes
+
 ## Overview
+
 
 * About
 * Primitive Data Types
@@ -13,49 +19,23 @@
 * Objects
 * Errors in Brief
 
-## About
+## The Types
 
-There are two types of data in JavaScript: 1) primitives and 2) objects.
+JavaScript's data types are:
 
-All types except objects define immutable values (values which are incapable of being changed). For example, Strings are immutable. This means that once a string is created, it is not possible to modify it. However, it is still possible to create another string based on an operation on the original string. We refer to values of these types as "primitive values".
++ Number
++ String
++ Boolean
++ Undefined
++ Null
++ Symbol
 
-## Primitive Data Types
 
-JavaScript has a six primitive data types:
+### Numbers
 
-1. Number
-  - Examples include: `1`, `3.14`, `0.13`, `100`, ...
-  - The largest number in JavaScript is `9007199254740992`. Similarly, the smallest number is -`9007199254740992` (see [here](http://stackoverflow.com/a/307200/2890716) for more info.
+Unlike most programming languages JS uses floats by default. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
 
-2. String
-  - Examples include:  `"a"`, `"World Wide Web"`, `"Hey! H*w @re y0u?!"`
-
-3. Boolean
-  - Only two examples: `true` and `false`
-`
-4. Undefined
-  - Only one example: `undefined`
-  - Refers to an absent or unknown value. 
-  - A variable that has not been assigned a value has the value undefined.
-  - A function returns undefined if a value is not returned.
-
-5. Null
-  - Only one example: `null`
-  - This is a special keyword that means one of two things: no value or empty.  The difference from undefined is that when a variable is null, it is still defined.
-
-6. Symbol type
- - New (!) to JavaScript in ECMAScript Edition 6. A Symbol is a unique and immutable primitive value and may be used as the key of an Object property. Instead of creating new symbols with the `:` as we do in Ruby, you can make a new symbol by calling on the Symbol class and passing it a string:
-
-```javascript
-var greeting = Symbol("hello");
-typeof sym; // Returns "symbol"
-```
-
-#### 1. Numbers
-
-Unlike most programming languages JS uses floats by default. And creating literal numbers uses the Number Constructor. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
-
-Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor()`.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
+Sometimes this can lead to unexpected consequences, which can generally be solved with `Math.floor()`, which rounds the number down to the whole number.  Note when comparing integers to unknown numbers it is best practice to floor the unknown because some floats are equal to the integer.
 
 ```javascript
 4 === 4.0;                               // Returns true
@@ -64,10 +44,10 @@ Math.floor(4.00001);                     // Returns 4
 
 4.0000000000000001 === 4;                // Returns true
 
-Math.floor(4.0000000000000001); === true // safer!
+Math.floor(4.0000000000000001); === 4 // Returns true safer!
 ```
 
-#### 2. Strings
+### Strings
 
 Strings are very straight forward in JavaScript.  They are collections of characters.  Plus signs are used to concatenate strings.
 
@@ -79,23 +59,23 @@ JavaScript does not support string interpolation like some other languages (i.e.
 'High ' + 5 + '!!!'; // Returns 'High 5!!!'
 ```
 
-#### 3. Booleans
+### Booleans
 
-Booleans (**true** or **false** values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
+Booleans (`true` or `false` values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
 
-Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers 1 and 0 also follow boolean logic, so 1 is loosely equal to true and 0 is loosely equal to false. (1 and 0 can also be cast into true and false respectively). For example:
+Unlike in Ruby, booleans in JavaScript can be cast into numbers. The numbers `1` and `0` also follow boolean logic, with `1` being "truthy" and `0` being "falsey". `1` and `0` can also be cast into `true` and `false` respectively. For example:
 
 ```javascript
 !!0        // Returns false 
 
-+ true     // Returns 1 
++ true     // Returns 1
 
-0 == false // Returns true 
++ false // Returns 0
 
 !!1        // Returns true
 ```
 
-#### 4. Undefined 
+### Undefined 
 
 In JavaScript, `undefined` means a variable has been declared but has not yet been assigned a value, such as:
 
@@ -105,9 +85,9 @@ greeting;         // Returns undefined
 typeof(greeting); // Returns undefined
 ```
 
-#### 5. Null
+### Null
 
-While `undefined` represents the absence of a primitive *value*, `null` represents the absence of an object. It can be assigned to a variable as a representation of no value:
+While `undefined` represents the absence of a primitive *value*, `null` represents the absence of an object. You can think of `null` as JavaScript's version of `nil` in Ruby. It can be assigned to a variable as a representation of no value:
 
 ```javascript
 var example = null;
@@ -117,7 +97,7 @@ typeof(example); // Returns object
 
 From the preceding examples, it is clear that `undefined` and `null` are two distinct types: `undefined` is a type itself (`undefined`) while `null` is an object. To read more about the difference between `undefined` and `null`, see [this StackOverflow post](http://stackoverflow.com/q/5076944/2890716).
 
-#### 6. Symbols
+###. Symbols
 
 Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incorporate them into new code. As with Ruby, symbols are a unique and immutable data type which straddle the two worlds of objects and strings. 
 
@@ -131,21 +111,6 @@ Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org
 
 To read more about symbols, see [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) or [this StackOverflow post](http://stackoverflow.com/q/21724326/2890716).
 
-## Objects
-
-In JavaScript, objects can be seen as a collection of properties. You can think of them as most similar to Ruby's hashes, but with superpowers of storing functions as values in addition to the standard strings, numbers, etc. 
-
-We'll go over objects in more depth later, so for now just know that if you see something like the code below, you're probably looking at an object:
-
-```javascript
-var linkedInUser = {
-  "name": "Adam Enbar",
-  "position": "Co-Founder & CEO",
-  "education": "Harvard Business School",
-  "url": "http://www.adamenbar.com/",
-  "connectionNum": 534
-}
-```
 
 ## Errors in Brief
 
@@ -164,12 +129,15 @@ typeof(); // Returns Uncaught SyntaxError: Unexpected token )
 
 #### NaN
 
-`NaN`, standing for Not-A-Number, represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function.
+`NaN`, standing for Not-A-Number, represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function. `isNan()` will return `false` if the argument can be operated on. For example, we saw earlier that `0 + true` returns `1`. Therefore, `isNan(true)` will return false, because `true` can be used in mathematical expressions. 
 
 ```javascript
 1 - 'three' // Returns NaN
 NaN === NaN // Returns false
 isNaN(NaN)  // Returns true
+isNaN("Hello") // Returns true
+isNaN(42) // Returns false
+isNaN(true) // Returns false
 ```
 To read more about `NaN`, see *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
