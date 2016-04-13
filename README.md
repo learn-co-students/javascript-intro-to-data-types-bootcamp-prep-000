@@ -5,20 +5,6 @@ JavaScript has many of the same data types as Ruby, and a few we've never seen b
 ## Objectives
 + List the JS datatypes
 
-## Overview
-
-
-* About
-* Primitive Data Types
-  1. Number
-  2. String
-  3. Boolean
-  4. undefined
-  5. Null
-  6. Symbol
-* Objects
-* Errors in Brief
-
 ## The Types
 
 JavaScript's data types are:
