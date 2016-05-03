@@ -4,7 +4,7 @@ In this lesson, we'll cover all the different data types in JavaScript.
 
 ## Objectives
 - Define "data type"
-- Explain different data types in JavaScript
+- Explain JavaScript's data types
 - Use the `typeof` operator
 
 ## What is a data type?
