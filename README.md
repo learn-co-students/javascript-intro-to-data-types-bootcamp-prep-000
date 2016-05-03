@@ -3,7 +3,9 @@
 In this lesson, we'll cover all the different data types in JavaScript.
 
 ## Objectives
-+ Describe the JS data types
+- Define "data type"
+- Explain different data types in JavaScript
+- Use the `typeof` operator
 
 ## What is a data type?
 
@@ -53,7 +55,22 @@ Math.floor(4.0000000000000001) === 4     // Returns true
 
 `Math.floor()` rounds a decimal _down_ to the nearest integer. Similarly, `Math.ceil()` rounds a decimal _up_ to the nearest integer. There's also `Math.round()`, which rounds a decimal according to traditional rounding rules (e.g., `Math.round(5.4)` is `5` and `Math.round(5.5)` is `6`).
 
-Keep in mind that in JavaScript, `NaN` (which stands for "Not a Number") has the `Number` data type. (More on that below.)
+Keep in mind that in JavaScript, `NaN` (which stands for "not a number") has the `Number` data type. (More on that below.)
+
+#### `NaN`
+
+`NaN`, standing for "Not A Number", represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function. `isNan()` will return `false` if the argument can be operated on. For example, we saw earlier that `0 + true` returns `1`. Therefore, `isNan(true)` will return false, because `true` can be used in mathematical expressions.
+
+```javascript
+1 - 'three'    // Returns NaN
+NaN === NaN    // Returns false
+isNaN(NaN)     // Returns true
+isNaN("Hello") // Returns true
+isNaN(42)      // Returns false
+isNaN(true)    // Returns false
+```
+
+To read more about `NaN`, see the *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
 ### Strings
 
@@ -132,37 +149,6 @@ Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org
 > ES6 symbols are similar to the more traditional symbols in languages like Lisp and Ruby.
 
 To read more about symbols, see [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) or [this StackOverflow post](http://stackoverflow.com/q/21724326/2890716).
-
-
-## Errors in Brief
-
-Let's think back to Ruby. Ruby has standard errors ranging from type errors to syntax errors. Take a look at the example below:
-
-```ruby
-1 + "7"
-TypeError: String can't be coerced into Fixnum
-```
-
-Just like Ruby, JavaScript also has errors. Here are some examples: EvalErrors, RangeErrors, SyntaxErrors, and TypeErrors. For instance, if you forget to pass the function `typeOf()` an argument, you'll get a syntax error:
-
-```javascript
-typeof(); // Returns Uncaught SyntaxError: Unexpected token )
-```
-
-#### `NaN`
-
-`NaN`, standing for "Not A Number", represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function. `isNan()` will return `false` if the argument can be operated on. For example, we saw earlier that `0 + true` returns `1`. Therefore, `isNan(true)` will return false, because `true` can be used in mathematical expressions.
-
-```javascript
-1 - 'three'    // Returns NaN
-NaN === NaN    // Returns false
-isNaN(NaN)     // Returns true
-isNaN("Hello") // Returns true
-isNaN(42)      // Returns false
-isNaN(true)    // Returns false
-```
-
-To read more about `NaN`, see the *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
 ## Resources
 
