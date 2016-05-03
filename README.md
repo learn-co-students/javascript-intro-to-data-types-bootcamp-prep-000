@@ -18,10 +18,7 @@ typeof "foo" // 'string'
 typeof true  // 'boolean'
 ```
 
-Note that `typeof` is an _operator_, not a _function_. You'll come to
-appreciate this distinction more fully later on, but for now know that
-it means that `typeof("foo")` works because you're just wrapping `"foo"`
-in parentheses — `typeof "foo"` is just fine.
+Note that `typeof` is an _operator_, not a _function_. You'll come to appreciate this distinction more fully later on, but for now know that it means that `typeof("foo")` works because you're just wrapping `"foo"` in parentheses — `typeof "foo"` is just fine.
 
 ## The Types
 
@@ -34,11 +31,9 @@ In JavaScript, we have the following _primitive_ types:
 + Null
 + Symbol (new in [ECMAScript 6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla))
 
-By "primitive type" we mean data that is not an object (more on that in a sec)
-and has no methods (more on that later).
+By "primitive type" we mean data that is not an object (more on that in a sec) and has no methods (more on that later).
 
 In addition to the above primitive types, JavaScript also has a type called `Object`.
-
 
 ### Numbers
 
@@ -64,7 +59,7 @@ Keep in mind that in JavaScript, `NaN` (which stands for "Not a Number") has the
 
 Strings are very straight forward in JavaScript. They are collections of characters. Plus signs are used to concatenate strings.
 
-As of ECMAScript 6, JavaScript supports string interpolation in [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Template literals (and ES6 generally) isn't quite fully implemented in all modern browsers, but you can try out many of these features in the latest build of Chrome.
+As of ECMAScript 6, JavaScript supports string interpolation in [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Template literals (and ES6 generally) isn't quite fully implemented in all modern browsers, but you can try out many of these features in the latest builds of Chrome, FireFox, and Safari.
 
 ```javascript
 'Hello ' + 'World';  // Returns 'Hello World'
@@ -130,16 +125,11 @@ Symbols are so new to JavaScript that you probably won't see or interact with th
 
 Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/):
 
-> Symbols aren’t exactly like anything else. They’re immutable once created. You
-> can’t set properties on them (and if you try that in strict mode, you’ll get a
-> TypeError). They can be property names. These are all string-like qualities.
+> Symbols aren’t exactly like anything else. They’re immutable once created. You can’t set properties on them (and if you try that in strict mode, you’ll get a TypeError). They can be property names. These are all string-like qualities.
 
-> On the other hand, each symbol is unique, distinct from all others (even
-> others that have the same description) and you can easily create new ones.
-> These are object-like qualities.
+> On the other hand, each symbol is unique, distinct from all others (even others that have the same description) and you can easily create new ones. These are object-like qualities.
 
-> ES6 symbols are similar to the more traditional symbols in languages like Lisp
-> and Ruby.
+> ES6 symbols are similar to the more traditional symbols in languages like Lisp and Ruby.
 
 To read more about symbols, see [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) or [this StackOverflow post](http://stackoverflow.com/q/21724326/2890716).
 
@@ -171,7 +161,8 @@ isNaN("Hello") // Returns true
 isNaN(42)      // Returns false
 isNaN(true)    // Returns false
 ```
-To read more about `NaN`, see *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
+
+To read more about `NaN`, see the *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
 
 ## Resources
 
