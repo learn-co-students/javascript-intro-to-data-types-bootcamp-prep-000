@@ -83,10 +83,8 @@ As of ECMAScript 6, JavaScript supports string interpolation in [template litera
 
 'High ' + 5 + '!!!'; // Returns 'High 5!!!'
 
-var person = "Pat"
-
 // template literal
-`Hey there, ${person}!` // 'Hey there, Pat!'
+`High ${5 + 5}!` // 'High 10!'
 ```
 
 ### Booleans
