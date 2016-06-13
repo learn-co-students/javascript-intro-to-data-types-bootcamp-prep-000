@@ -102,7 +102,7 @@ typeof 1.123.45
 typeof 'I'm not going to work'
 ```
 
-For now, we're going to explore numbers and strings the most, and we'll quickly introduce booleans. Later in the curriculum, you'll learn a lot more about `null` and `undefined`.
+For now, we're going to explore numbers and strings the most. Later in the curriculum, you'll learn a lot more about booleans, `null` and `undefined`.
 
 ### Numbers
 
@@ -175,13 +175,6 @@ Template literals look and behave like strings, except instead of being wrapped 
 `High ${3 + 2}!` // 'High 5!'
 ```
 
-### Booleans
-
-JavaScript's _booleans_ (ways of representing logic) are `true` and `false`. Booleans will become useful when we start working out how to control what our programs do.
-
-
 ## Resources
 
 * [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
-* [MDN - undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
-* [NaN - The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html)
