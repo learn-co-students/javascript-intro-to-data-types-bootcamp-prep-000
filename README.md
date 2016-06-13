@@ -11,144 +11,177 @@ In this lesson, we'll cover all the different data types in JavaScript.
 
 At the machine level, all data on a computer is bits — 1s and 0s. Humans, it turns out, prefer not to work so close to the metal, so we have _data types_ for describing different bits of information. Data types give us a quick way of understanding how we can operate on a given bit of data.
 
-## The `typeof` Operator
+## Math!
 
-JavaScript provides an operator, [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof), which returns a string representing the type of an object.
+Let's do some math. Open up your console and enter:
 
 ``` javascript
-typeof "foo" // 'string'
-typeof true  // 'boolean'
+2 + 2
 ```
 
-Note that `typeof` is an _operator_, not a _function_. You'll come to appreciate this distinction more fully later on, but for now know that it means that `typeof("foo")` works because you're just wrapping `"foo"` in parentheses — `typeof "foo"` is just fine.
+We should, unsurprisingly, see `4` show up in console. Cool. Now let's try
 
-## The Types
+``` javascript
+2 + "2"
+```
 
-In JavaScript, we have the following _primitive_ types:
+(Don't forget the quotation marks around the second number!)
 
-+ Number
-+ String
-+ Boolean
-+ Undefined
-+ Null
-+ Symbol (new in [ECMAScript 6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla))
+And press enter.
 
-By "primitive type" we mean data that is not an object (more on that in a sec) and has no methods (more on that later).
+Um. Something's broken?
 
-In addition to the above primitive types, JavaScript also has a type called `Object`.
+Do you see `"22"`? That's because we're adding (with the `+` operator) things of two different _types_. `2` is a number; `"2"` is a string. So when we add them together, JavaScript recognizes that we can't do simple arithmetic — instead, it tries to make the two things compatible. In this case, it turns the first `2` into `"2"` and then _concatenates_ (pushes together) the two things — so we get `"22"`.
+
+One last example — before you press "enter" for this one, we want to think about what's going to happen. What will the result be?
+
+``` javascript
+"2" + 2
+```
+
+Have you thought about it? What did we learn above? Are you ready? Okay, press "enter".
+
+That's right, the result of `"2" + 2` is also `"22"`.
+
+Why all this mumbo jumbo with types? Well, let's think about it. As humans when we see `2345`, we provide context: we might think of this sequence of integers in our heads as "two thousand three hundred forty-five"; we might note immediately that the integers are consecutive. We understand that `2345 + 2` should give us `2347`.
+
+JavaScript can't do that. It sees `2345` and only knows that it's a number. Similarly, it sees _anything_ in quotation marks as a string. We provide the context for JavaScript according to the rules that JavaScript follows — one of those rules happens to describe what happens when we add a number and a string.
+
+## You're just not my type
+
+How do we know what types we're dealing with? JavaScript gives us the handy dandy `typeof`. We use it like so
+
+``` javascript
+typeof 2 // "number"
+typeof "2" // "string"
+typeof '2' // "string" — strings can be enclosed in single (') or double (") quotes
+```
+
+Pretty simple, right?
+
+In addition to numbers and strings, JavaScript has the following _primitive_ types:
+
+- Boolean
+- Undefined
+- Null
+
+Enter the following commands in your console to get a feel for the different types:
+
+``` javascript
+typeof 1
+typeof 10
+typeof 1.123
+```
+
+``` javascript
+typeof "Albert"
+typeof '123'
+typeof "What's my type?"
+```
+
+``` javascript
+typeof true
+typeof false
+```
+
+``` javascript
+typeof undefined
+```
+
+``` javascript
+typeof null
+```
+
+Also enter the following — pay attention to the errors!
+
+``` javascript
+typeof 1.123.45
+```
+
+``` javascript
+typeof 'I'm not going to work'
+```
+
+For now, we're going to explore numbers and strings the most, and we'll quickly introduce booleans. Later in the curriculum, you'll learn a lot more about `null` and `undefined`.
 
 ### Numbers
 
-Unlike most programming languages, JS uses floats by default. New numbers can optionally have decimal points with trailing zeros, but keep in mind they are floats either way.
+JavaScript uses numbers just like you would think of them, and we can even use decimal points. Enter the following in console:
 
-Sometimes this can lead to unexpected consequences:
-
-```javascript
-4 === 4.0;                               // Returns true
-
-Math.floor(4.00001);                     // Returns 4
-
-4.0000000000000001 === 4;                // Returns true(!)
-
-Math.floor(4.0000000000000001) === 4     // Returns true
+``` javascript
+4
+8.0
+16.123
 ```
 
-`Math.floor()` rounds a decimal _down_ to the nearest integer. Similarly, `Math.ceil()` rounds a decimal _up_ to the nearest integer. There's also `Math.round()`, which rounds a decimal according to traditional rounding rules (e.g., `Math.round(5.4)` is `5` and `Math.round(5.5)` is `6`).
-
-Keep in mind that in JavaScript, `NaN` (which stands for "not a number") has the `Number` data type. (More on that below.)
-
-#### `NaN`
-
-`NaN`, standing for "Not A Number", represents the improper use of a math operator. It is a special value used to denote an unrepresentable value. `NaN` is the only thing in JS that is not equal to itself. To check for `NaN` use the `isNaN()` function. `isNan()` will return `false` if the argument can be operated on. For example, we saw earlier that `0 + true` returns `1`. Therefore, `isNan(true)` will return false, because `true` can be used in mathematical expressions.
+In fact, JavaScript treats _all_ numbers as if they have decimal points (even if they don't). Sometimes this can lead to unexpected consequences. Enter the following in console:
 
 ```javascript
-1 - 'three'    // Returns NaN
-NaN === NaN    // Returns false
-isNaN(NaN)     // Returns true
-isNaN("Hello") // Returns true
-isNaN(42)      // Returns false
-isNaN(true)    // Returns false
+4
 ```
 
-To read more about `NaN`, see the *A Drip of Javascript*'s post titled [The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html).
+If you press enter, you'll see `4`. Simple enough. Now enter the following:
+
+``` javascript
+4.0000000000000001
+```
+
+If you press `enter`, you'll see... `4`. Hrm. It gets weirder — enter the following now:
+
+``` javascript
+0.1 + 0.2
+```
+
+You should see `0.30000000000000004`, which is plainly wrong. This is a common problem in programming: decimal points have to work a certain way because, deep down, they're represented in _binary_ (as ones and zeroes). It's not important to know the details of how this behavior works right now (although we encourage you to search for resources online if you find it interesting!), but it is important to know that it happens.
 
 ### Strings
 
 Strings are very straight forward in JavaScript. They are collections of characters. Plus signs are used to concatenate strings.
 
-As of ECMAScript 6, JavaScript supports string interpolation in [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). Template literals (and ES6 generally) isn't quite fully implemented in all modern browsers, but you can try out many of these features in the latest builds of Chrome, FireFox, and Safari.
+In their most basic form, strings look like
 
-```javascript
-'Hello ' + 'World';  // Returns 'Hello World'
+``` javascript
+"I'm a string"
+'I\'m also a string'
+```
+
+Notice that we added a `\` before the `'` in the second string above. Because we use quotation marks to tell JavaScript, "Hey, this is a string!", we have to _escape_ quotation marks when they're inside of a string so that JavaScript knows to treat them as part of the string.
+
+Go ahead and enter `'I\'m a string'` in console. You should see `"I'm a string"` — when we wrap a string in double quotation marks, we don't need to escape single quotation marks (the apostrophe, in this example) that appear inside.
+
+``` javascript
+"I'm a string"
+```
+
+Similarly, we don't need to escape double quotes when we use them in a singly-quoted string:
+
+``` javascript
+'I said, "Strings are pretty nifty."'
+```
+
+We can "add" strings together — this is called concatenation:
+
+``` javascript
+'Hello, ' + 'World';  // Returns 'Hello, World'
 
 'High ' + 5 + '!!!'; // Returns 'High 5!!!'
+```
 
-// template literal
-`High ${5 + 5}!` // 'High 10!'
+We can also insert strings into other strings — this is called _interpolation_. JavaScript supports string interpolation with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+
+Template literals look and behave like strings, except instead of being wrapped in a single or double quote, they're wrapped in backticks (at the top left of your keyboard — it looks like this: `):
+
+```javascript
+`High ${3 + 2}!` // 'High 5!'
 ```
 
 ### Booleans
 
-Booleans (`true` or `false` values) are fairly straight forward in JS; however, there are some quirks that you should be aware of.
+JavaScript's _booleans_ (ways of representing logic) are `true` and `false`. Booleans will become useful when we start working out how to control what our programs do.
 
-Booleans in JavaScript can be _cast_ into numbers. We "cast" data when we change its type from one primitive to another. The numbers `1` and `0` also follow boolean logic, with `1` being "truthy" and `0` being "falsey". `1` and `0` can also be cast into `true` and `false` respectively. For example:
-
-```javascript
-!!0        // Returns false
-
-+ true     // Returns 1
-
-+ false    // Returns 0
-
-!!1        // Returns true
-```
-
-### Undefined
-
-In JavaScript, `undefined` is a property of the global object (`window` in the browser — go ahead, try exploring `window` in your browser's console). The primitive `undefined` is used in several cases:
-
-1. If a variable has not been assigned a value, it is `undefined`.
-2. If a function does not return a value, it returns `undefined`.
-
-```javascript
-var greeting;
-greeting;         // Returns undefined
-typeof greeting   // Returns undefined
-
-function greet() {
-  // don't return anything
-}
-
-greet() // Returns undefined
-```
-
-### Null
-
-While `undefined` represents the absence of a primitive *value*, `null` represents the absence of an object. It can be assigned to a variable as a representation of no value:
-
-```javascript
-var example = null;
-example;         // Returns null
-typeof example;  // Returns object
-```
-
-From the preceding examples, it is clear that `undefined` and `null` are two distinct types: `undefined` is a type itself (`undefined`) while `null` is an object. To read more about the difference between `undefined` and `null`, see [this StackOverflow post](http://stackoverflow.com/q/5076944/2890716).
-
-### Symbols
-
-Symbols are so new to JavaScript that you probably won't see or interact with them much unless you intentionally incorporate them into new code. Symbols are a unique and immutable data type which straddle the two worlds of objects and strings.
-
-Here's an excerpt from MDN's [blog post about symbols](https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/):
-
-> Symbols aren’t exactly like anything else. They’re immutable once created. You can’t set properties on them (and if you try that in strict mode, you’ll get a TypeError). They can be property names. These are all string-like qualities.
-
-> On the other hand, each symbol is unique, distinct from all others (even others that have the same description) and you can easily create new ones. These are object-like qualities.
-
-> ES6 symbols are similar to the more traditional symbols in languages like Lisp and Ruby.
-
-To read more about symbols, see [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) or [this StackOverflow post](http://stackoverflow.com/q/21724326/2890716).
 
 ## Resources
 
 * [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 * [MDN - undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
+* [NaN - The Problem with Testing for NaN in JavaScript](http://adripofjavascript.com/blog/drips/the-problem-with-testing-for-nan-in-javascript.html)
