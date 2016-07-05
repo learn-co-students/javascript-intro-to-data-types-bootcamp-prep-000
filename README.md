@@ -175,8 +175,10 @@ Template literals look and behave like strings, except instead of being wrapped 
 `High ${3 + 2}!` // 'High 5!'
 ```
 
-We'll cover string interpolation in greater depth later on, but for now notice that the whole string is wrapped in backticks, and the part that we _interpolate_ is wrapped in `${}`. `${}` is simply a special signal to JavaScript that people weren't likely to write out on their own — it signals to the JavaScript interpreter that it should _evaluate_ (that is, run the code) whatever is inside of it. Being able to evaluate our code and put the result directly inside of a string is a super powerful idea that we'll make lots of use of.
+We'll cover string interpolation in greater depth later on, but for now notice that the whole string is wrapped in backticks, and the part that we _interpolate_ is wrapped in `${}`. This, `${}`, is simply a special signal to JavaScript that people weren't likely to write out on their own — it signals to the JavaScript interpreter that it should _evaluate_ (that is, run the code) whatever is inside of it. Being able to evaluate our code and put the result directly inside of a string is a super powerful idea that we'll make lots of use of.
 
 ## Resources
 
 * [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-data-types'>JavaScript Data Types</a> on Learn.co and start learning to code for free.</p>
