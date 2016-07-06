@@ -3,9 +3,9 @@
 In this lesson, we'll cover all the different data types in JavaScript.
 
 ## Objectives
-- Define "data type"
-- Explain JavaScript's data types
-- Use the `typeof` operator
+1. Define "data type"
+2. Explain JavaScript's data types
+3. Use the `typeof` operator
 
 ## What is a data type?
 
@@ -180,3 +180,5 @@ We'll cover string interpolation in greater depth later on, but for now notice t
 ## Resources
 
 * [MDN - JavaScript Data Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/javascript-intro-to-data-types'>JavaScript Data Types</a> on Learn.co and start learning to code for free.</p>
