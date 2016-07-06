@@ -162,9 +162,9 @@ Similarly, we don't need to escape double quotes when we use them in a singly-qu
 We can "add" strings together — this is called concatenation:
 
 ``` javascript
-'Hello, ' + 'World';  // Returns 'Hello, World'
+'Hello, ' + 'World'  // Returns 'Hello, World'
 
-'High ' + 5 + '!!!'; // Returns 'High 5!!!'
+'High ' + 5 + '!!!' // Returns 'High 5!!!'
 ```
 
 We can also insert strings into other strings — this is called _interpolation_. JavaScript supports string interpolation with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
