@@ -136,7 +136,7 @@ You should see `0.30000000000000004`, which is plainly wrong. This is a common p
 
 ### Strings
 
-Strings are very straight forward in JavaScript. They are collections of characters. Plus signs are used to concatenate strings.
+Strings are very straightforward in JavaScript. They are collections of characters. Plus signs are used to concatenate strings.
 
 In their most basic form, strings look like
 
