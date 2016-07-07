@@ -126,13 +126,7 @@ If you press enter, you'll see `4`. Simple enough. Now enter the following:
 4.0000000000000001
 ```
 
-If you press `enter`, you'll see... `4`. Hrm. It gets weirder — enter the following now:
-
-``` javascript
-0.1 + 0.2
-```
-
-You should see `0.30000000000000004`, which is plainly wrong. This is a common problem in programming: decimal points have to work a certain way because, deep down, they're represented in _binary_ (as ones and zeroes). It's not important to know the details of how this behavior works right now (although we encourage you to search for resources online if you find it interesting!), but it is important to know that it happens.
+If you press `enter`, you'll see... `4`. Hrm. It's not important to know the details of how this behavior works right now (although we encourage you to search for resources online if you find it interesting!), but it is important to know that it happens.
 
 ### Strings
 
