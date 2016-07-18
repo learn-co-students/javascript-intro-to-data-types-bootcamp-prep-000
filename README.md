@@ -1,6 +1,6 @@
 # JavaScript Data Types
 
-In this lesson, we'll cover all the different data types in JavaScript.
+In this lesson, we'll cover some of the most commonly used data types in JavaScript.
 
 ## Objectives
 1. Define "data type"
@@ -13,13 +13,17 @@ At the machine level, all data on a computer is bits — 1s and 0s. Humans, it t
 
 ## Math!
 
-Let's do some math. Open up your console and enter:
+Imagine you're building a new-fangled version of those toys where you have to match the shape with the hole it fits into.
+
+![shape sorter](http://i.makeagif.com/media/12-14-2015/jj-I6H.gif)
+
+This new-fangled version works when you combine inputs of the same time. To demonstrate, let's do some math. Open up your console and enter:
 
 ``` javascript
 2 + 2
 ```
 
-We should, unsurprisingly, see `4` show up in console. Cool. Now let's try
+We should, unsurprisingly, see `4` show up in console. Cool — pop that into the `4` hole in our shape sorter. Now let's try
 
 ``` javascript
 2 + "2"
@@ -29,9 +33,9 @@ We should, unsurprisingly, see `4` show up in console. Cool. Now let's try
 
 And press enter.
 
-Um. Something's broken?
+Um. Something's broken? Instead of another `4`, we got `"22"` — that won't work.
 
-Do you see `"22"`? That's because we're adding (with the `+` operator) things of two different _types_. `2` is a number; `"2"` is a string. So when we add them together, JavaScript recognizes that we can't do simple arithmetic — instead, it tries to make the two things compatible. In this case, it turns the first `2` into `"2"` and then _concatenates_ (pushes together) the two things — so we get `"22"`.
+It turns out, we're adding (with the `+` operator) things of two different _types_. `2` is a number; `"2"` is a string. So when we add them together, JavaScript recognizes that we can't do simple arithmetic — instead, it tries to make the two things compatible. In this case, it turns the first `2` into `"2"` and then _concatenates_ (pushes together) the two things — so we get `"22"`.
 
 One last example — before you press "enter" for this one, we want to think about what's going to happen. What will the result be?
 
@@ -57,7 +61,7 @@ typeof "2" // "string"
 typeof '2' // "string" — strings can be enclosed in single (') or double (") quotes
 ```
 
-Pretty simple, right?
+Pretty simple, right? You can think of `typeof` as a shortcut for telling you what kind of hole to look for in our imaginary, new-fangled shape-sorter.
 
 In addition to numbers and strings, JavaScript has the following _primitive_ types:
 
