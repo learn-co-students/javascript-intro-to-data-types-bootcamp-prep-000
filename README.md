@@ -167,7 +167,7 @@ We can "add" strings together — this is called concatenation:
 
 We can also insert strings into other strings — this is called _interpolation_. JavaScript supports string interpolation with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
-Template literals look and behave like strings, except instead of being wrapped in a single or double quote, they're wrapped in backticks (at the top left of your keyboard — it looks like `).
+Template literals look and behave like strings, except instead of being wrapped in a single or double quote, they're wrapped in backticks (at the top left of your keyboard, under the escape key — it looks like `).
 
 ```javascript
 `High ${3 + 2}!` // 'High 5!'
